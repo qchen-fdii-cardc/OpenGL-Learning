@@ -178,8 +178,6 @@ FreeType 使用以下度量信息来描述字形：
 - **左侧轴承 (Left/Bearing X)**: 从当前光标位置到字形左边缘的水平距离
 - **顶部轴承 (Top/Bearing Y)**: 从基线到字形顶部的垂直距离
 
-![FreeType 度量](https://i.imgur.com/LQXwZJm.png)
-
 ### OpenGL 坐标系统
 
 在我们的实现中，使用了正交投影矩阵将 OpenGL 的坐标系统映射到屏幕坐标：
