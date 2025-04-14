@@ -35,10 +35,10 @@ const char* fragmentShaderSource =
 
 /* Character structure */
 typedef struct {
-    GLuint TextureID;   /* ID handle of the glyph texture */
-    int Width;          /* Width of glyph */
-    int Height;         /* Height of glyph */
-    int Advance;        /* Advance of glyph (horizontal offset) */
+    GLuint TextureID;    /* ID handle of the glyph texture */
+    GLuint Width;        /* Width of glyph */
+    GLuint Height;       /* Height of glyph */
+    GLuint Advance;      /* Horizontal offset to advance to next glyph */
     int Left;           /* Left offset of glyph */
     int Top;            /* Top offset of glyph */
 } Character;
@@ -322,7 +322,7 @@ void initFreeType(void) {
                 face->glyph->bitmap.rows,
                 face->glyph->advance.x,
                 face->glyph->bitmap_left,
-                face->glyph->bitmap_top
+                face->glyph->bitmap_top,
             };
             Characters[codepoint] = character;
         }
@@ -411,8 +411,9 @@ void renderText(const char* text, float x, float y, float scale, float r, float 
         // 计算位置 - 基线对齐
         float xpos = x + ch.Left * scale;
         
-        // 注意：在我们的坐标系统中，y 轴是从上到下的
-        // ch.Top 是从基线到字形顶部的距离
+        // 使用ch.Top属性来正确对齐字符与基线
+        // ch.Top是从基线到字形顶部的距离
+        // 对于标点符号，这会使它们与文字的基线对齐
         float ypos = y - (ch.Height - ch.Top) * scale;
         
         float w = ch.Width * scale;

@@ -72,15 +72,19 @@ ax.annotate('', xy=(1.0, 1.0), xytext=(1.0, 0.0),
 ax.annotate('', xy=(0.0, 1.0), xytext=(1.0, 1.0), 
              arrowprops=dict(arrowstyle='->', color='red', lw=1.5))
 
-# 添加纹理坐标标签
-ax.text(0, 1, '(0,0)', fontsize=10, ha='right', va='top', color='blue')
-ax.text(0, 0, '(0,1)', fontsize=10, ha='right', va='top', color='blue')
-ax.text(1, 0, '(1,1)', fontsize=10, ha='right', va='top', color='blue')
+# 添加纹理坐标标签 - 更新为正确的纹理坐标
+ax.text(0, 1, '(0,1)', fontsize=10, ha='right', va='top', color='blue')
+ax.text(0, 0, '(0,0)', fontsize=10, ha='right', va='top', color='blue')
+ax.text(1, 0, '(1,0)', fontsize=10, ha='right', va='top', color='blue')
 
 # 红色三角形
-ax.text(0, 1, '(0,0)', fontsize=10, ha='left', va='bottom', color='red')
-ax.text(1, 0, '(1,1)', fontsize=10, ha='left', va='bottom', color='red')
-ax.text(1, 1, '(1,0)', fontsize=10, ha='left', va='bottom', color='red')
+ax.text(0, 1, '(0,1)', fontsize=10, ha='left', va='bottom', color='red')
+ax.text(1, 0, '(1,0)', fontsize=10, ha='left', va='bottom', color='red')
+ax.text(1, 1, '(1,1)', fontsize=10, ha='left', va='bottom', color='red')
+
+# 添加基线标记
+ax.axhline(y=0.2, color='green', linestyle='--', alpha=0.7)
+ax.text(1.05, 0.2, '基线', fontsize=10, color='green', va='center')
 
 # 在三角形中间绘制字母"A"
 # 左斜线

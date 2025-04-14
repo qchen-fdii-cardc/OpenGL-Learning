@@ -113,9 +113,9 @@ int main(void) {
     glUseProgram(shaderProgram);
     GLfloat projection[16] = {
         2.0f / WIDTH, 0.0f, 0.0f, 0.0f,
-        0.0f, 2.0f / HEIGHT, 0.0f, 0.0f,
+        0.0f, -2.0f / HEIGHT, 0.0f, 0.0f,
         0.0f, 0.0f, -1.0f, 0.0f,
-        -1.0f, -1.0f, 0.0f, 1.0f
+        -1.0f, 1.0f, 0.0f, 1.0f
     };
     GLint projLoc = glGetUniformLocation(shaderProgram, "projection");
     glUniformMatrix4fv(projLoc, 1, GL_FALSE, projection);
@@ -355,24 +355,22 @@ void renderText(const char* text, float x, float y, float scale, float r, float 
         }
         
         // 计算位置 - 基线对齐
-        float xpos = x + ch.Left * scale;
-        
-        // 注意：在我们的坐标系统中，y 轴是从上到下的
-        // ch.Top 是从基线到字形顶部的距离
-        float ypos = y - (ch.Height - ch.Top) * scale;
+        float xpos = x + ch.Left * scale;        
+
+        float ypos = y - ch.Height * scale;
         
         float w = ch.Width * scale;
         float h = ch.Height * scale;
         
         // 更新顶点数据 - 注意 Y 坐标的顺序
         float vertices[6][4] = {
-            { xpos,     ypos + h,   0.0f, 0.0f },  // 左上 (纹理坐标 0,0)
-            { xpos,     ypos,       0.0f, 1.0f },  // 左下 (纹理坐标 0,1)
-            { xpos + w, ypos,       1.0f, 1.0f },  // 右下 (纹理坐标 1,1)
+            { xpos,     ypos + h,   0.0f, 1.0f },  // 左上 (纹理坐标 0,1)
+            { xpos,     ypos,       0.0f, 0.0f },  // 左下 (纹理坐标 0,0)
+            { xpos + w, ypos,       1.0f, 0.0f },  // 右下 (纹理坐标 1,0)
             
-            { xpos,     ypos + h,   0.0f, 0.0f },  // 左上 (纹理坐标 0,0)
-            { xpos + w, ypos,       1.0f, 1.0f },  // 右下 (纹理坐标 1,1)
-            { xpos + w, ypos + h,   1.0f, 0.0f }   // 右上 (纹理坐标 1,0)
+            { xpos,     ypos + h,   0.0f, 1.0f },  // 左上 (纹理坐标 0,1)
+            { xpos + w, ypos,       1.0f, 0.0f },  // 右下 (纹理坐标 1,0)
+            { xpos + w, ypos + h,   1.0f, 1.0f }   // 右上 (纹理坐标 1,1)
         };
         
         glBindTexture(GL_TEXTURE_2D, ch.TextureID);
