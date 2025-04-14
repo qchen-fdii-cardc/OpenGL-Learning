@@ -49,12 +49,12 @@ t2 = patches.Polygon(triangle2, alpha=0.3, color='red', label='三角形 2')
 ax.add_patch(t1)
 ax.add_patch(t2)
 
-# 绘制顶点并添加标签
-for i, (x, y) in enumerate(quad_vertices):
-    ax.plot(x, y, 'ko', markersize=8)
-    ax.text(x, y, f'v{i} ({x},{y})', fontsize=10, 
-             ha='right' if x < 0.5 else 'left', 
-             va='bottom' if y < 0.5 else 'top')
+# # 绘制顶点并添加标签
+# for i, (x, y) in enumerate(quad_vertices):
+#     ax.plot(x, y, 'ko', markersize=8)
+#     ax.text(x, y, f'v{i} ({x},{y})', fontsize=10, 
+#              ha='right' if x < 0.5 else 'left', 
+#              va='bottom' if y < 0.5 else 'top')
 
 # 添加顶点顺序箭头 - 修正红色三角形的箭头顺序
 ax.annotate('', xy=(0.0, 0.0), xytext=(0.0, 1.0), 
@@ -62,21 +62,25 @@ ax.annotate('', xy=(0.0, 0.0), xytext=(0.0, 1.0),
 ax.annotate('', xy=(1.0, 0.0), xytext=(0.0, 0.0), 
              arrowprops=dict(arrowstyle='->', color='blue', lw=1.5))
 ax.annotate('', xy=(0.0, 1.0), xytext=(1.0, 0.0), 
-             arrowprops=dict(arrowstyle='->', color='blue', lw=1.5, ls='--'))
+             arrowprops=dict(arrowstyle='->', color='blue', lw=1.5))
 
 # 修正红色三角形的箭头顺序
-ax.annotate('', xy=(1.0, 1.0), xytext=(0.0, 1.0), 
+ax.annotate('', xy=(1.0, 0.0), xytext=(0.0, 1.0), 
              arrowprops=dict(arrowstyle='->', color='red', lw=1.5))
-ax.annotate('', xy=(1.0, 0.0), xytext=(1.0, 1.0), 
+ax.annotate('', xy=(1.0, 1.0), xytext=(1.0, 0.0), 
              arrowprops=dict(arrowstyle='->', color='red', lw=1.5))
-ax.annotate('', xy=(0.0, 1.0), xytext=(1.0, 0.0), 
-             arrowprops=dict(arrowstyle='->', color='red', lw=1.5, ls='--'))
+ax.annotate('', xy=(0.0, 1.0), xytext=(1.0, 1.0), 
+             arrowprops=dict(arrowstyle='->', color='red', lw=1.5))
 
 # 添加纹理坐标标签
-ax.text(0, 0, '(0,0)', fontsize=10, ha='right', va='top')
-ax.text(1, 0, '(1,0)', fontsize=10, ha='left', va='top')
-ax.text(0, 1, '(0,1)', fontsize=10, ha='right', va='bottom')
-ax.text(1, 1, '(1,1)', fontsize=10, ha='left', va='bottom')
+ax.text(0, 1, '(0,0)', fontsize=10, ha='right', va='top', color='blue')
+ax.text(0, 0, '(0,1)', fontsize=10, ha='right', va='top', color='blue')
+ax.text(1, 0, '(1,1)', fontsize=10, ha='right', va='top', color='blue')
+
+# 红色三角形
+ax.text(0, 1, '(0,0)', fontsize=10, ha='left', va='bottom', color='red')
+ax.text(1, 0, '(1,1)', fontsize=10, ha='left', va='bottom', color='red')
+ax.text(1, 1, '(1,0)', fontsize=10, ha='left', va='bottom', color='red')
 
 # 在三角形中间绘制字母"A"
 # 左斜线
