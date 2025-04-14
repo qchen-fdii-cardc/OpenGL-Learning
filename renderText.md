@@ -622,3 +622,10 @@ y_{pos} = y - (ch.Height - ch.Top) * scale
 4. 灵活的颜色控制和特效支持
 
 通过这些技术的组合，我们实现了一个功能完整、性能良好的文本渲染系统，能够满足大多数应用程序的需求。
+
+最后，我们甚至都整了一个中文的版本。
+
+- [Code-cn](./helloworld_cn.c)
+
+![renderText-cn](./imgs/renderText-cn.png)
+
