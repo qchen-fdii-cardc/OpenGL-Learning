@@ -1,5 +1,10 @@
 # OpenGL/GLFW 中的 FreeType 文本渲染技术
 
+- [ToC](./README.md)
+- [Repository](<https://github.com/qchen-fdii-carc/OpenGL-Learning>)
+- [Code](./helloworld.c)
+- [Code-cn](./helloworld_cn.c)
+
 本来想找个软柿子，说什么Hello World，结果发现GLFW的Hello World都这么复杂，但是，来都来了，还是从文本渲染开始吧。
 
 首先，我们需要一点五彩斑斓的黑色，使得界面一看就很醒目！就比如这样的！
