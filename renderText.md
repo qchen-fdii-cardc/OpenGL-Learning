@@ -10,14 +10,14 @@
 
 GLFW 是一个用于 OpenGL 开发的轻量级工具库，专注于处理窗口、上下文和输入。它为 OpenGL 应用程序提供了一个简单的 API，用于创建窗口、上下文和处理用户输入。
 
-### 主要功能：
+### 主要功能
 
 - **窗口和上下文管理**：创建和管理 OpenGL 上下文和窗口
 - **输入处理**：键盘、鼠标、游戏手柄和时间输入
 - **事件处理**：窗口、输入和时间事件的回调机制
 - **多显示器支持**：处理多个显示器的分辨率和位置
 
-### API 结构：
+### API 结构
 
 GLFW 的 API 按功能分为几个主要类别：
 
@@ -44,7 +44,7 @@ GLFW 的 API 按功能分为几个主要类别：
    - `glfwGetTime()` - 获取自初始化以来经过的时间
    - `glfwSetTime()` - 设置计时器的值
 
-### 官方文档和资源：
+### 官方文档和资源
 
 - [GLFW 官方网站](https://www.glfw.org/)
 - [GLFW 文档](https://www.glfw.org/docs/latest/)
@@ -138,11 +138,6 @@ int main(void) {
 
 这个框架为后续实现文本渲染提供了必要的基础设施，包括 OpenGL 上下文、窗口系统和基本的渲染循环。
 
-
-
-
-
-
 ## 文本渲染的基本原理
 
 本文档详细解释 FreeType 如何在 OpenGL 中实现高质量文本渲染，重点关注核心技术、坐标系统和实现方法。
@@ -163,6 +158,7 @@ FreeType 是一个专门用于字体处理的软件库，它提供了统一的 A
 - 支持 Unicode 和国际化文本
 
 在 OpenGL 中渲染文本的基本思路是：
+
 1. 使用 FreeType 将每个字符渲染为纹理
 2. 创建包含这些纹理的四边形（通常是两个三角形）
 3. 根据排版规则正确定位这些四边形
@@ -198,6 +194,7 @@ GLfloat projection[16] = {
 ```
 
 这个矩阵将窗口左上角映射为 (-1, 1)，右下角映射为 (1, -1)。这意味着在我们的系统中：
+
 - X 轴从左到右（与 FreeType 一致）
 - Y 轴从上到下（与 FreeType 的基线系统不同）
 
@@ -289,6 +286,7 @@ void initFreeType(void) {
 ```
 
 这段代码完成了以下工作：
+
 1. 初始化 FreeType 库
 2. 加载字体文件
 3. 设置字体大小
@@ -344,6 +342,7 @@ void renderText(const char* text, float x, float y, float scale, float r, float 
 ```
 
 这个函数是文本渲染的核心，它完成以下工作：
+
 1. 设置着色器和颜色
 2. 遍历文本中的每个字符
 3. 根据字符度量信息计算正确的位置
@@ -410,6 +409,7 @@ for (const char* c = text; *c; c++) {
 $$x_{pos} = x + (ch.Left \times scale)$$
 
 其中：
+
 - $x$ 是当前光标位置
 - $ch.Left$ 是水平轴承（从光标到字形左边缘的距离）
 - $scale$ 是缩放因子
@@ -429,6 +429,7 @@ $$x_{advance} = (ch.Advance \gg 6) \times scale$$
 $$y_{pos} = y - (ch.Height - ch.Top) \times scale$$
 
 这个公式的含义是：
+
 - $y$ 是基线位置
 - $ch.Height$ 是字形的总高度
 - $ch.Top$ 是从基线到字形顶部的距离
@@ -471,6 +472,7 @@ renderText(text, x, y, scale, 255, 215, 0);  // 金色
 ```
 
 这段代码实现了：
+
 1. 计算文本的总宽度：$textWidth = \sum_{c \in text} (ch.Advance \gg 6) \times scale$
 2. 计算水平居中的起始 x 坐标：$x = (WIDTH - textWidth) / 2.0$
 3. 设置基线的 y 坐标在窗口中间：$y = HEIGHT / 2.0$
@@ -506,6 +508,7 @@ void main() {
 ```
 
 这对着色器的特点：
+
 1. 顶点着色器将纹理坐标传递给片段着色器
 2. 片段着色器从单通道纹理中采样 alpha 值
 3. 将 alpha 值与指定的文本颜色结合
