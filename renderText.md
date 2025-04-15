@@ -627,6 +627,6 @@ y_{pos} = y - (ch.Height - ch.Top) * scale
 
 - [Code-cn](./helloworld_cn.c)
 
-![renderText-cn](./imgs/renderText-cn.png)
+![renderText-cn](./imgs/renderTextCn.png)
 
 总之是，我再也不想碰文本渲染了。

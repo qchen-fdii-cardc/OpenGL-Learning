@@ -16,4 +16,4 @@
 ## 代码库
 
 - [OpenGL 学习笔记](https://github.com/qchen-fdii-cardc/OpenGL-Learning)
-- [imgui-examples](<https://github.com/qchen-fdii-carc/imgui-examples>)
+- [imgui-examples](<https://github.com/qchen-fdii-cardc/imgui-examples>)
