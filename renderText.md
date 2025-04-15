@@ -1,9 +1,9 @@
 # OpenGL/GLFW 中的 FreeType 文本渲染技术
 
-- [ToC](./README.md)
+- [Table of Contents](./README.md)
 - [Repository](<https://github.com/qchen-fdii-carc/OpenGL-Learning>)
-- [Code](./helloworld.c)
-- [Code-cn](./helloworld_cn.c)
+- [英文Code](./helloworld.c)
+- [中文Code](./helloworld_cn.c)
 
 本来想找个软柿子，说什么Hello World，结果发现GLFW的Hello World都这么复杂，但是，来都来了，还是从文本渲染开始吧。
 
@@ -412,7 +412,7 @@ float vertices[6][4] = {
 
 在 OpenGL 中，文本渲染是通过将字符纹理映射到由两个三角形组成的矩形上实现的。下面详细解释顶点数据的结构和顺序：
 
-### 顶点数据结构
+### 顶点数据
 
 在 OpenGL 中，每个顶点通常包含多个属性，如位置坐标、纹理坐标、法线等。在文本渲染代码中，每个顶点包含 4 个浮点数：
 
@@ -427,7 +427,7 @@ float vertices[6][4] = { ... }
 3. `0.0f` 或 `1.0f` - 纹理坐标的 U 值（水平方向）
 4. `0.0f` 或 `1.0f` - 纹理坐标的 V 值（垂直方向）
 
-### 顶点顺序与三角形
+### 顺序与三角形
 
 代码定义了两个三角形，共 6 个顶点（每个三角形 3 个顶点）。在 OpenGL 中，三角形的顶点顺序非常重要，它决定了三角形的正面和背面，以及纹理如何映射到三角形上。
 
@@ -629,3 +629,4 @@ y_{pos} = y - (ch.Height - ch.Top) * scale
 
 ![renderText-cn](./imgs/renderText-cn.png)
 
+总之是，我再也不想碰文本渲染了。

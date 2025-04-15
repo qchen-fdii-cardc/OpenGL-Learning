@@ -1,8 +1,8 @@
 # OpenGL 学习笔记
 
-
 ## 计划赶不上变化
 
+0. [C/Cpp开发OpenGL程序所需要的亿点点基础](./yidiandian.md)
 1. [文本渲染](./renderText.md)
 2. [GLFW 库介绍（未完成）](./GLFW.md)
 3. [GLEW 库介绍（未完成）](./GLEW.md)
@@ -11,7 +11,6 @@
 6. [光照（未完成）](./lighting.md)
 7. [纹理（未完成）](./texture.md)
 8. [模型加载（未完成）](./modelLoading.md)
-
 
 ## 代码库
 

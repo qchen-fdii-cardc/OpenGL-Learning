@@ -250,8 +250,8 @@ void initFreeType(void) {
         "/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf",  // Linux
         "/usr/share/fonts/noto/NotoSansCJK-Regular.ttc",              // Linux
         "/usr/share/fonts/wenquanyi/wqy-microhei/wqy-microhei.ttc",   // Linux
-        "C:/Windows/Fonts/msyh.ttc",                                  // Windows
-        "C:/Windows/Fonts/simsun.ttc",                                // Windows
+        "/mnt/c/Windows/Fonts/msyh.ttc",                                  // Windows
+        "/mnt/c/Windows/Fonts/simsun.ttc",                                // Windows
         "/System/Library/Fonts/PingFang.ttc",                         // macOS
         "fonts/NotoSansSC-Regular.otf"                                // 自定义路径
     };
